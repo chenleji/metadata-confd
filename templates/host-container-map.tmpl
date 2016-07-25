@@ -1,0 +1,12 @@
+[host]
+{{range getvs "/host/*"}}
+{{.}}
+{{end}}
+
+[container]
+{{range getvs "/containers/*"}}
+{{.}}
+{{end}}
+
+
+

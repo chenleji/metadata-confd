@@ -1,0 +1,9 @@
+[template]
+prefix = "/2015-07-25"
+src = "host-container-map.tmpl"
+dest = "/var/lib/floatting-ip/host-container-map.txt"
+keys = [
+  "/hosts",
+  "/containers",
+]
+reload_cmd = "/usr/bin/metadata-trigger.sh"
