@@ -1,7 +1,6 @@
-FROM ubuntu:14.04
-COPY ./confd /bin/confd
-COPY ./conf.d /etc/confd/conf.d
-COPY ./templates /etc/confd/templates
-RUN mkdir -p /var/lib/floatting-ip; apt-get update -y; apt-get install curl -y
-#ENTRYPOINT ["confd", "-backend", "rancher" "-confdir", "/etc/confd"]
-
+FROM python:2.7 
+RUN apt-get update && apt-get -y install curl vim
+RUN pip install requests requests_unixsocket docker-py
+COPY . /python/src
+WORKDIR /python/src
+ENTRYPOINT ["python", "main.py"]
